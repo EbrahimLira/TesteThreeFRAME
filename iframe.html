@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three.js Rectangle Iframe</title>
+    <title>Retângulo Three.js em Iframe</title>
     <style>
         body {
             margin: 0;
             padding: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background-color: #f0f0f0;
+            height: 100vh;
         }
         iframe {
-            width: 720px;
-            height: 520px;
+            width: 720px !important;
+            height: 520px !important;
             border: none;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            flex-shrink: 0; /* Impede que o iframe encolha */
         }
     </style>
 </head>
