@@ -14,18 +14,127 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            width: 720px;
+            height: 520px;
+            background-color: #4a4a4a;
+            padding: 20px 20px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        .inner-border {
+            width: 680px;
+            height: 440px;
+            background-color: #d3d3d3;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            border: 6px solid #333333;
         }
         canvas {
-            width: 720px !important;
-            height: 520px !important;
+            width: 680px !important;
+            height: 440px !important;
             display: block;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 680px;
+        }
+        .play-button {
+            width: 30px;
+            height: 30px;
+            background: url('play.png') no-repeat center;
+            background-size: contain;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        .timeline {
+            flex-grow: 1;
+            height: 20px;
+            position: relative;
+            background: white;
+            border-radius: 10px;
+        }
+        .timeline-slider {
+            width: 30px;
+            height: 18px;
+            background: black;
+            position: absolute;
+            left: 0;
+            top: 1px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .reset-rotation {
+            width: 36px;
+            height: 36px;
+            background: url('resetrotacao.png') no-repeat center;
+            background-size: contain;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .value-display {
+            min-width: 60px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <div class="inner-border" id="canvas-container"></div>
+        <div class="player-controls">
+            <button class="play-button"></button>
+            <div class="timeline">
+                <div class="timeline-slider"></div>
+            </div>
+            <button class="reset-rotation"></button>
+        </div>
+    </div>
+    <div class="controls">
+        <div class="control-group">
+            <button id="decreaseAmbient">-</button>
+            <span class="value-display" id="ambientValue">0.5</span>
+            <button id="increaseAmbient">+</button>
+            <span>Luz Ambiente</span>
+        </div>
+        <div class="control-group">
+            <button id="decreaseDirectional">-</button>
+            <span class="value-display" id="directionalValue">0.8</span>
+            <button id="increaseDirectional">+</button>
+            <span>Luz Direcional</span>
+        </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fflate@0.7.4/umd/index.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FBXLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
     <script src="main.js"></script>
 </body>
 </html> 
